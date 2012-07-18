@@ -11,6 +11,7 @@ A Redactor Developer license purchase allows a multiple “live” installation 
 ## Permitted Use
 
 Redactor License:
+
 1. Personal License: Users of the Personal License may use the software only for their own professional web presence. The Personal license may not be used for client work. Only one Personal license is permitted per business entity.
 2. Developer License: Users of the Developer License may use the Software on any website that engage in commercial, or for-profit, activities. Websites that engage in direct, or indirect, commercial activities must purchase a Developer License. Users of the Developer License may include the software in their projects, products, widgets, extensions or any other fair way while developing other products (according to the restrictions outlined below).
 3. Corporate License: Users of the Corporate License may use the software as if they had the Developer license. Corporate License holders will be provided with faster support and can expect top-priority response to their requests. Users who hold a corporate license will be offered the highest quality of service and support including, but not limited to: bug fixes in the software, the development of the requested features (if the request is reasonable), help with installation of the software, reasonable customization, etc.
