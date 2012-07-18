@@ -18,7 +18,7 @@ Redactor License:
 
 Imperavi will be the sole arbiter as to what constitutes commercial activities.
 
-# Restrictions
+## Restrictions
 
 Unless you have been granted prior written consent from Imperavi, you may not do the following:
 
