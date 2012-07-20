@@ -1,6 +1,6 @@
 /*
-	Redactor v7.7.1
-	Updated: July 7, 2012
+	Redactor v7.7.2
+	Updated: July 19, 2012
 	
 	http://redactorjs.com/
 	
@@ -751,7 +751,8 @@ var RLANG = {
 			{
 				e.preventDefault();
 			}
-			this.execCommand(cmd, null);
+			
+			this.execCommand(cmd, false);
 		},
 		getPath: function()
 		{
@@ -802,10 +803,6 @@ var RLANG = {
 			if (this.doc !== null)
 			{
 				this.write(this.setDoc(html));
-				if ($.browser.mozilla)
-				{
-					this.doc.execCommand("useCSS", false, true);
-				}
 				return $(this.doc).find('#page');
 			}
 			else
@@ -908,6 +905,11 @@ var RLANG = {
 		// OBSERVERS
 		observeFocus: function()
 		{
+			if ($.browser.msie)
+			{
+				return false;
+			}
+		
 			if ($(this.doc).find('body').height() < $(this.$frame.get(0).contentWindow).height())
 			{		
 				$(this.doc).click($.proxy(function(e) { this.$editor.focus(); }, this));
@@ -919,12 +921,7 @@ var RLANG = {
 			{
 				return false;
 			}
-		
-			if ($.browser.mozilla)
-			{
-				this.doc.execCommand("enableObjectResizing", false, "false");
-			}
-			
+
 			$(this.doc).find('img').each($.proxy(function(i,s)
 			{
 				if ($.browser.msie) $(s).attr('unselectable', 'on');
@@ -1716,26 +1713,7 @@ var RLANG = {
 				var _self = this;
 				$(swatch).click(function() 
 				{ 
-					if ($.browser.mozilla)
-					{	
-						if (mode == 'hilitecolor')
-						{					
-							_self.execCommand('useCSS', false, false);
-							_self.execCommand(mode, $(this).attr('rel'));
-							_self.execCommand('useCSS', false, true);
-						}
-						else
-						{
-							_self.execCommand('styleWithCSS', false, false);
-							_self.execCommand(mode, $(this).attr('rel'));
-							_self.execCommand('styleWithCSS', false, true);
-						}
-					}
-					else
-					{
-						_self.execCommand(mode, $(this).attr('rel'));
-					}
-		
+					_self.execCommand(mode, $(this).attr('rel'));
 				});
 			}
 
